@@ -5,7 +5,7 @@ rectangle "class diagram" {
         class Main 
         
         interface WeatherDataAccessInterface {
-            + getDaySmallestTempSpread(): float
+            + getDaySmallestTempSpread(): String
         }
 
         class WeatherDataAccess {

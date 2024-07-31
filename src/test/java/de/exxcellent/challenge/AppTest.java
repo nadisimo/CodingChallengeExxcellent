@@ -43,4 +43,9 @@ class AppTest {
         assertEquals("14", day);
     }
 
+    @Test
+    void runMain() throws Exception {
+        App app = new App();
+        app.main();
+    }
 }
