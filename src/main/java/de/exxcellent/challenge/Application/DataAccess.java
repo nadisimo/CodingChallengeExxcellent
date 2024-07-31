@@ -16,6 +16,13 @@ public abstract class DataAccess {
         }
     }
 
+    /**
+     * compares to columns with each other and returns the row of the smallest difference.
+     * @param label1
+     * @param label2
+     * @return smallestDifference
+     * @throws Exception
+     */
     public int rowSmallestDifference(String label1, String label2) throws Exception {
         ArrayList<String> column1 = reader.getValues(label1);
         ArrayList<String> column2 = reader.getValues(label2);

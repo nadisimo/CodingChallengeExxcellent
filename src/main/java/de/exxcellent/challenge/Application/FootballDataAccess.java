@@ -5,6 +5,11 @@ public class FootballDataAccess extends DataAccess implements FootballDataAccess
         super(filePath);
     }
 
+    /**
+     * determines the team with the smallest difference between goals and allowed goals.
+     * @return
+     * @throws Exception
+     */
     @Override
     public String teamSmallestDifference() throws Exception {
         int rowSmallestDifference = rowSmallestDifference("Goals", "Goals Allowed");

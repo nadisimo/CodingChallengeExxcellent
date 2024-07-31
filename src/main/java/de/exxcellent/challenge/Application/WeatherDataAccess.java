@@ -6,6 +6,11 @@ public class WeatherDataAccess extends DataAccess implements WeatherDataAccessIn
         super(filePath);
     }
 
+    /**
+     * determines the day with the smallest temperature spread of the month.
+     * @return
+     * @throws Exception
+     */
     @Override
     public String getDaySmallestTempSpread() throws Exception {
         int rowSmallestDifference = rowSmallestDifference("MxT", "MnT");
