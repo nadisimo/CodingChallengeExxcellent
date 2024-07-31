@@ -18,14 +18,14 @@ public class CsvReader implements ReaderInterface {
     File file;
     List<CSVRecord> csvRecords;
 
-    public CsvReader(String csvFilePath) {
+    public CsvReader(String csvFilePath) throws Exception {
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(csvFilePath);
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader());
             this.csvRecords = csvParser.getRecords();
             this.headerNames = csvParser.getHeaderNames();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new Exception("could not read csv file.");
         }
     }
 

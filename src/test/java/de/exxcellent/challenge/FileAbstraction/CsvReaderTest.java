@@ -12,7 +12,7 @@ class CsvReaderTest {
     CsvReader csvReader;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception {
         csvReader = new CsvReader("de/exxcellent/challenge/football.csv");
     }
 
