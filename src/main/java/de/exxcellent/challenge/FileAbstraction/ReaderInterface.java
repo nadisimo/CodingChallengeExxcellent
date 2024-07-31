@@ -1,6 +1,7 @@
 package de.exxcellent.challenge.FileAbstraction;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Interface for readers that read data from a given file.
@@ -11,21 +12,23 @@ public interface ReaderInterface {
      *
      * @return labels of data
      */
-    Set<String> getLabels();
+    ArrayList<String> getLabels();
 
     /**
      * get all values of a specific label. Can be a "column" of a table.
+     *
      * @param label
      * @return values of the label
      */
-    String[] getValues(String label);
+    ArrayList<String> getValues(String label);
 
     /**
      * Is only applicable for data structured in tables and returns a specific "row".
+     *
      * @param index
      * @return
      */
-    String[] getRow(int index);
+    HashMap<String, String> getRow(int index);
 
     /**
      * get the value of a specific element of the data

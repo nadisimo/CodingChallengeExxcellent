@@ -1,2 +1,5 @@
-package de.exxcellent.challenge.Application;public class DataAccess {
+package de.exxcellent.challenge.Application;
+
+public class DataAccess {
+
 }

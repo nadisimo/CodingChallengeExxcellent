@@ -1,0 +1,63 @@
+@startuml
+
+rectangle "class diagram" { 
+    rectangle Application {
+        class Main 
+        
+        interface WeatherDataAccessInterface {
+            + getDaySmallestTempSpread(): float
+        }
+
+        class WeatherDataAccess {
+            
+        }
+
+        interface FootballDataAccessInterface {
+            + getAbsoluteDifference(): int
+        }
+
+        class FootballDataAccess {
+            
+        }
+
+        abstract class DataAccess {
+            + DataAccess(String filePath)
+            # difference(T value1, T value2): <T extends Number> T 
+
+        }
+    }
+
+    rectangle FileAbstraction {
+        class CsvReader {
+            + ReaderInterface(String csvFilePath)
+        }
+
+        class JsonReader {
+            + ReaderInterface(String jsonFilePath)
+            
+        }
+
+        interface ReaderInterface {
+            + getLabels(): String[]
+            + getValues(String label): String[]
+            + getElement(int index, String label): String
+            + getTupel(int index): String[]
+        }
+    }
+
+    
+}
+
+WeatherDataAccessInterface <|-- WeatherDataAccess : implements
+FootballDataAccessInterface <|-- FootballDataAccess : implements
+DataAccess <|-- WeatherDataAccess : extends 
+DataAccess <|-- FootballDataAccess : extends 
+
+DataAccess *-- "1" ReaderInterface : contains
+ReaderInterface <|-- CsvReader : implements
+ReaderInterface <|-- JsonReader : implements
+
+Main *-- "1" WeatherDataAccessInterface : contains
+Main *-- "1" FootballDataAccessInterface : contains
+
+@enduml
