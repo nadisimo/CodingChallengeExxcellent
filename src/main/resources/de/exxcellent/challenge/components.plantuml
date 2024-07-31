@@ -9,21 +9,22 @@ rectangle "class diagram" {
         }
 
         class WeatherDataAccess {
-            
+            WeatherDataAccess(String filePath)
         }
 
         interface FootballDataAccessInterface {
-            + getAbsoluteDifference(): int
+            + teamSmallestDifference(): String
         }
 
         class FootballDataAccess {
-            
+            FootballDataAccess(String filePath)
         }
 
         abstract class DataAccess {
             + DataAccess(String filePath)
-            # difference(T value1, T value2): <T extends Number> T 
-
+            + rowSmallestDifference(String label1, String label2): int 
+            # absoluteDifference(String value1, String value2): Integer
+            + setReader(String filepath): void
         }
     }
 
@@ -38,10 +39,10 @@ rectangle "class diagram" {
         }
 
         interface ReaderInterface {
-            + getLabels(): String[]
-            + getValues(String label): String[]
+            + getLabels(): Arraylist<String>
+            + getValues(String label): Arraylist<String>
             + getElement(int index, String label): String
-            + getTupel(int index): String[]
+            + getRow(int index): Arraylist<String>
         }
     }
 
